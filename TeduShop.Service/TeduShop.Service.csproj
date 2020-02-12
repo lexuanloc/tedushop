@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +52,10 @@
     <ProjectReference Include="..\TeduShop.Data\TeduShop.Data.csproj">
       <Project>{026d3878-7ae6-4c32-b047-a4bf13bfa3f4}</Project>
       <Name>TeduShop.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeduShop.Model\TeduShop.Model.csproj">
+      <Project>{3529ff70-cdd3-4732-ae40-fa8d1e0d7773}</Project>
+      <Name>TeduShop.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
