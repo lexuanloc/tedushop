@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -15,6 +13,7 @@ namespace TeduShop.Web.Infrastructure.Core
     public class ApiControllerBase : ApiController
     {
         private IErrorService _errorService;
+
         public ApiControllerBase(IErrorService errorService)
         {
             this._errorService = errorService;
@@ -40,17 +39,16 @@ namespace TeduShop.Web.Infrastructure.Core
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException dbEx)
             {
-                LogError(ex);
-                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
+                LogError(dbEx);
+                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, dbEx.InnerException.Message);
             }
             catch (Exception ex)
             {
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
-
             return response;
         }
 
@@ -62,13 +60,11 @@ namespace TeduShop.Web.Infrastructure.Core
                 error.CreatedDate = DateTime.Now;
                 error.Message = ex.Message;
                 error.StackTrace = ex.StackTrace;
-
                 _errorService.Create(error);
                 _errorService.Save();
             }
             catch
             {
-
             }
         }
     }

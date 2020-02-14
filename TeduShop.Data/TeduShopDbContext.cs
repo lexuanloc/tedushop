@@ -11,7 +11,7 @@ namespace TeduShop.Data
 {
     public class TeduShopDbContext : IdentityDbContext<ApplicationUser>
     {
-        public TeduShopDbContext() : base("TeduShopConection")
+        public TeduShopDbContext() : base("TeduShopConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }

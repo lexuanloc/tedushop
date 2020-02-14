@@ -7,7 +7,6 @@ using TeduShop.Web.Models;
 
 namespace TeduShop.Web.Infrastructure.Extensions
 {
-    // Copy dữ liệu từ ViewModel sang đối tượng Model
     public static class EntityExtensions
     {
         public static void UpdatePostCategory(this PostCategory postCategory, PostCategoryViewModel postCategoryVm)
@@ -28,6 +27,7 @@ namespace TeduShop.Web.Infrastructure.Extensions
             postCategory.MetaKeyword = postCategoryVm.MetaKeyword;
             postCategory.MetaDescription = postCategoryVm.MetaDescription;
             postCategory.Status = postCategoryVm.Status;
+
         }
 
         public static void UpdatePost(this Post post, PostViewModel postVm)
