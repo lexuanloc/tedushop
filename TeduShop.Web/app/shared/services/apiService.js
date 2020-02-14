@@ -4,6 +4,7 @@
     app.factory('apiService', apiService);
 
     apiService.$inject = ['$http'];
+
     function apiService($http) {
         return {
             get: get
@@ -17,5 +18,4 @@
             });
         }
     }
-
 })(angular.module('tedushop.common'));
