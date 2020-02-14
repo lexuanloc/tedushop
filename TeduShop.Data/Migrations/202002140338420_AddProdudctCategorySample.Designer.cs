@@ -7,13 +7,13 @@ namespace TeduShop.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class IntergrateAspnetIdentity : IMigrationMetadata
+    public sealed partial class AddProdudctCategorySample : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(IntergrateAspnetIdentity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddProdudctCategorySample));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605080451056_Intergrate-AspnetIdentity"; }
+            get { return "202002140338420_AddProdudctCategorySample"; }
         }
         
         string IMigrationMetadata.Source

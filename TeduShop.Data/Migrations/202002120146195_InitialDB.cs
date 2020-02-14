@@ -1,4 +1,4 @@
-namespace TeduShop.Data.Migrations
+﻿namespace TeduShop.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -91,6 +91,7 @@ namespace TeduShop.Data.Migrations
                         HomeFlag = c.Boolean(),
                         HotFlag = c.Boolean(),
                         ViewCount = c.Int(),
+                        Tags = c.String(),
                         CreatedDate = c.DateTime(),
                         CreatedBy = c.String(maxLength: 256),
                         UpdatedDate = c.DateTime(),

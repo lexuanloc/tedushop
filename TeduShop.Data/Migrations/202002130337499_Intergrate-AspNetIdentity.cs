@@ -1,9 +1,9 @@
-namespace TeduShop.Data.Migrations
+﻿namespace TeduShop.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class IntergrateAspnetIdentity : DbMigration
+    public partial class IntergrateAspNetIdentity : DbMigration
     {
         public override void Up()
         {
@@ -21,11 +21,11 @@ namespace TeduShop.Data.Migrations
                 c => new
                     {
                         UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(),
+                        RoleId = c.String(nullable: false, maxLength: 128),
                         IdentityRole_Id = c.String(maxLength: 128),
                         ApplicationUser_Id = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.UserId)
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
                 .ForeignKey("dbo.IdentityRoles", t => t.IdentityRole_Id)
                 .ForeignKey("dbo.ApplicationUsers", t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id)
