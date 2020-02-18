@@ -15,6 +15,16 @@
         }
         $scope.addProduct = addProduct;
         $scope.getSeoTitle = getSeoTitle;
+        $scope.chooseImage = chooseImage;
+
+        function chooseImage() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.product.Image = fileUrl;
+            }
+
+            finder.popup();
+        }
 
         function getSeoTitle() {
             $scope.product.Alias = commonService.getSeoTitle($scope.product.Name);
