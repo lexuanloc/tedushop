@@ -8,6 +8,8 @@
     "jquery": "2.2.3",
     "bootstrap": "3.3.6",
     "fastclick": "1.0.6",
-    "toastr": "2.1.2"
+    "toastr": "2.1.2",
+    "bootbox": "4.4.0",
+    "ngbootbox": "0.2.0"
   }
 }
