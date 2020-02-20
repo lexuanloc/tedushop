@@ -14,10 +14,26 @@
         $scope.getSeoTitle = getSeoTitle;
         $scope.chooseImage = chooseImage;
 
+        $scope.moreImages = [];
+        $scope.chooseMoreImage = chooseMoreImage;
+
+        function chooseMoreImage() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.moreImages.push(fileUrl);
+                })
+            }
+
+            finder.popup();
+        }
+
         function chooseImage() {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-                $scope.product.Image = fileUrl;
+                $scope.$apply(function () {
+                    $scope.product.Image = fileUrl;
+                })
             }
 
             finder.popup();
@@ -30,12 +46,17 @@
         function loadProductDetail() {
             apiService.get('api/product/getbyid?id=' + $stateParams.id, null, function (result) {
                 $scope.product = result.data;
+                $scope.moreImages = JSON.parse($scope.product.MoreImages);
+
+                //fix lỗi chưa có ảnh nào thêm thì moreImages = null và ko push thêm ảnh vào được.
+                $scope.moreImages = $scope.moreImages || 0;
             }, function (error) {
                 notificationService.displayError(error.data);
             });
         }
 
         function updateProduct() {
+            $scope.product.MoreImages = JSON.stringify($scope.moreImages);
             apiService.put('api/product/update', $scope.product, function (result) {
                 notificationService.displaySuccess(result.data.Name + ' đã được cập nhật');
                 $state.go('products');
