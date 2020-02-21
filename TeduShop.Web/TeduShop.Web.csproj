@@ -194,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AccountController.cs" />
+    <Compile Include="Api\HomeController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
     <Compile Include="Api\ProductController.cs" />
@@ -226,6 +227,7 @@
     <Content Include="app\app.js" />
     <Content Include="app\components\home\homeController.js" />
     <Content Include="app\components\home\homeView.html" />
+    <Content Include="app\components\home\rootController.js" />
     <Content Include="app\components\login\loginController.js" />
     <Content Include="app\components\login\loginView.html" />
     <Content Include="app\components\products\products.module.js" />
@@ -247,7 +249,10 @@
     <Content Include="app\shared\filters\statusFilter.js" />
     <Content Include="app\shared\modules\tedushop.common.js" />
     <Content Include="app\shared\services\apiService.js" />
+    <Content Include="app\shared\services\authData.js" />
+    <Content Include="app\shared\services\authenticationService.js" />
     <Content Include="app\shared\services\commonService.js" />
+    <Content Include="app\shared\services\loginService.js" />
     <Content Include="app\shared\services\notificationService.js" />
     <Content Include="app\shared\views\baseView.html" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
@@ -310,9 +315,36 @@
     <Content Include="Assets\admin\js\app.js" />
     <Content Include="Assets\admin\js\app.min.js" />
     <Content Include="Assets\admin\js\demo.js" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Libs\CKFinder.dll" />
+    <Content Include="node_modules\angular-loading-bar\build\loading-bar.css" />
+    <Content Include="node_modules\angular-loading-bar\build\loading-bar.js" />
+    <Content Include="node_modules\angular-loading-bar\build\loading-bar.min.css" />
+    <Content Include="node_modules\angular-loading-bar\build\loading-bar.min.js" />
+    <Content Include="node_modules\angular-loading-bar\example\app.css" />
+    <Content Include="node_modules\angular-loading-bar\example\app.js" />
+    <Content Include="node_modules\angular-loading-bar\example\index.html" />
+    <Content Include="node_modules\angular-loading-bar\Gruntfile.js" />
+    <Content Include="node_modules\angular-loading-bar\index.js" />
+    <Content Include="node_modules\angular-loading-bar\src\loading-bar.css" />
+    <Content Include="node_modules\angular-loading-bar\src\loading-bar.js" />
+    <Content Include="node_modules\angular-loading-bar\test\karma-angular-1.2.conf.js" />
+    <Content Include="node_modules\angular-loading-bar\test\karma-angular-1.3.conf.js" />
+    <Content Include="node_modules\angular-loading-bar\test\karma-angular-1.4.conf.js" />
+    <Content Include="node_modules\angular-local-storage\.gitattributes" />
+    <Content Include="node_modules\angular-local-storage\demo\demo-app.js" />
+    <Content Include="node_modules\angular-local-storage\demo\demo-style.css" />
+    <Content Include="node_modules\angular-local-storage\demo\demo.html" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.min.js" />
+    <Content Include="node_modules\angular-local-storage\Gruntfile.js" />
+    <Content Include="node_modules\angular-local-storage\index.js" />
+    <Content Include="node_modules\angular-local-storage\src\angular-local-storage.js" />
+    <Content Include="node_modules\angular-local-storage\test\karma.conf.js" />
+    <Content Include="node_modules\angular-local-storage\test\mock\localStorageMock.js" />
+    <Content Include="node_modules\angular-local-storage\test\spec\localStorageSpec.js" />
     <Content Include="node_modules\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="node_modules\angular-ui-router\release\angular-ui-router.min.js" />
     <Content Include="node_modules\angular-ui-router\src\common.js" />
@@ -4506,6 +4538,34 @@
     <Content Include="node_modules\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="node_modules\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="node_modules\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="node_modules\angular-loading-bar\.editorconfig" />
+    <Content Include="node_modules\angular-loading-bar\.jshintrc" />
+    <Content Include="node_modules\angular-loading-bar\.npmignore" />
+    <Content Include="node_modules\angular-loading-bar\bower.json" />
+    <Content Include="node_modules\angular-loading-bar\CHANGELOG.md" />
+    <Content Include="node_modules\angular-loading-bar\CONTRIBUTING.md" />
+    <Content Include="node_modules\angular-loading-bar\ISSUE_TEMPLATE.md" />
+    <Content Include="node_modules\angular-loading-bar\LICENSE" />
+    <Content Include="node_modules\angular-loading-bar\package.json" />
+    <Content Include="node_modules\angular-loading-bar\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="node_modules\angular-loading-bar\README.md" />
+    <Content Include="node_modules\angular-loading-bar\test\loading-bar-interceptor-config.coffee" />
+    <Content Include="node_modules\angular-loading-bar\test\loading-bar-interceptor.coffee" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="node_modules\angular-local-storage\.bowerrc" />
+    <Content Include="node_modules\angular-local-storage\.editorconfig" />
+    <Content Include="node_modules\angular-local-storage\.npmignore" />
+    <Content Include="node_modules\angular-local-storage\.travis.yml" />
+    <Content Include="node_modules\angular-local-storage\bower.json" />
+    <Content Include="node_modules\angular-local-storage\CHANGELOG.md" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.min.js.map" />
+    <Content Include="node_modules\angular-local-storage\LICENSE" />
+    <Content Include="node_modules\angular-local-storage\package.json" />
+    <Content Include="node_modules\angular-local-storage\README.md" />
+    <Content Include="node_modules\angular-local-storage\test\.jshintrc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
