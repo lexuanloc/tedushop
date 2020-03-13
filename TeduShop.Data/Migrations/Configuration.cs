@@ -8,6 +8,7 @@
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using TeduShop.Common;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TeduShop.Data.TeduShopDbContext>
     {
@@ -60,6 +61,14 @@
             };
 
             context.ProductCategories.AddRange(listProductCategory);
+        }
+        
+        private void CreateFooter(TeduShopDbContext context)
+        {
+            if (context.Footers.Count(x => x.ID == CommonConstants.DefaultFooterId) == 0)
+            {
+
+            }
         }
     }
 }
