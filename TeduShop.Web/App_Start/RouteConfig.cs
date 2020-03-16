@@ -29,14 +29,14 @@ namespace TeduShop.Web
 
             routes.MapRoute(
                 name: "Product Category",
-                url: "alias.pc-{id}.html",
+                url: "{alias}.pc-{id}.html",
                 defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },
                 namespaces: new string[] { "TeduShop.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "Product",
-                url: "alias.p-{id}.html",
+                url: "{alias}.p-{id}.html",
                 defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
                 namespaces: new string[] { "TeduShop.Web.Controllers" }
             );

@@ -39,12 +39,12 @@
 
         function selectAll() {
             if ($scope.isAll === false) {
-                angular.forEach($scope.product, function (item) {
+                angular.forEach($scope.products, function (item) {
                     item.checked = true;
                 });
                 $scope.isAll = true;
             } else {
-                angular.forEach($scope.product, function (item) {
+                angular.forEach($scope.products, function (item) {
                     item.checked = false;
                 });
                 $scope.isAll = false;

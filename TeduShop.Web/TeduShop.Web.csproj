@@ -4203,7 +4203,6 @@
     <Folder Include="Views\About\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Post\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -4661,6 +4660,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Category.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Category.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -23,6 +23,8 @@ namespace TeduShop.Service
 
         IEnumerable<Product> GetHotProduct(int top);
 
+        IEnumerable<Product> GetListProductByCategoryIdPaging(int categoryId, int page, int pageSize, out int totalRow);
+
         Product GetById(int id);
 
         void Save();
@@ -106,6 +108,14 @@ namespace TeduShop.Service
         public IEnumerable<Product> GetLastest(int top)
         {
             return _productRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(top);
+        }
+
+        public IEnumerable<Product> GetListProductByCategoryIdPaging(int categoryId, int page, int pageSize, out int totalRow)
+        {
+            var query = _productRepository.GetMulti(x => x.Status && x.CategoryID == categoryId);
+            totalRow = query.Count();
+
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
         public void Save()
