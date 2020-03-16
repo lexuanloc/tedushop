@@ -9,19 +9,20 @@
                 var url = "/" + category.Alias + ".pc-" + category.ID + ".html";
                 var childCategories = Model.Where(x => x.ParentID == category.ID);
                 
-                <li>
-                    <a href="@url">@category.Name @(childCategories.Count() > 0 ? "<img class=\"arrow-img\" src=\"~/Assets/client/images/arrow1.png\" alt=\"\" />" : "")</a>
-                    @if (childCategories.Count() > 0)
-                    {
-                        <ul class="cute">
-                            @foreach (var childCategory in childCategories)
-                            {
-                                var childUrl = "/" + childCategory.Alias + ".pc-" + childCategory.ID + ".html";
-                                <li class="subitem3"><a href="@childUrl">@childCategory.Name</a></li>
-                            }
-                        </ul>
-                    }
-                </li>
+            <li>
+                @*<a href="@url">@category.Name @(childCategories.Count() > 0 ? "<img class=\"arrow-img\" src=\"~/Assets/client/images/arrow1.png\" alt=\"\" />" : "")</a>*@
+                <a href="@url">@category.Name</a>
+                @if (childCategories.Count() > 0)
+                {
+                    <ul class="cute">
+                        @foreach (var childCategory in childCategories)
+                        {
+                            var childUrl = "/" + childCategory.Alias + ".pc-" + childCategory.ID + ".html";
+                            <li class="subitem3"><a href="@childUrl">@childCategory.Name</a></li>
+                        }
+                    </ul>
+                }
+            </li>
             }
         </ul>
     </div>
