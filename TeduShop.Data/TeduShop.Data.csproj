@@ -84,6 +84,10 @@
     <Compile Include="Migrations\202002180948046_AddProductTagField.Designer.cs">
       <DependentUpon>202002180948046_AddProductTagField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003160206362_AddDemoSlide.cs" />
+    <Compile Include="Migrations\202003160206362_AddDemoSlide.Designer.cs">
+      <DependentUpon>202003160206362_AddDemoSlide.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002180948046_AddProductTagField.resx">
       <DependentUpon>202002180948046_AddProductTagField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003160206362_AddDemoSlide.resx">
+      <DependentUpon>202003160206362_AddDemoSlide.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
