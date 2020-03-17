@@ -81,8 +81,6 @@
             <div class="clearfix"> </div>
         </div>
         <div class="desc1 span_3_of_2">
-
-
             <h4>@Model.Name</h4>
             <div class="cart-b">
                 <div class="left-n ">@(Model.Price == 0 ? "Liên hệ" : Model.Price.ToString("N0"))</div>
@@ -91,8 +89,18 @@
             </div>
             <h6>@Model.Quantity sản phẩm trong kho</h6>
             <p>@Model.Description</p>
+            <div class="tag">
+                <h5>Tag:</h5>
+                <ul class="taglist">
+                    @foreach (var tag in (IEnumerable<TeduShop.Web.Models.TagViewModel>)ViewBag.Tags)
+                    {
+                        <li><a href="/tag/@(tag.ID).html">@(tag.Name)</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="clearfix"></div>
             <div class="share">
-                <h5>Share Product :</h5>
+                <h5>Chia sẻ:</h5>
                 <ul class="share_nav">
                     <li><a href="#"><img src="~/Assets/client/images/facebook.png" title="facebook"></a></li>
                     <li><a href="#"><img src="~/Assets/client/images/twitter.png" title="Twiiter"></a></li>

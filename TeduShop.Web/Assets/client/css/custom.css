@@ -1,0 +1,7 @@
+﻿.tag li {
+    display:block;
+}
+
+.taglist li {
+    float:left;
+}
