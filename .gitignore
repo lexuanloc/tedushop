@@ -349,3 +349,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 TeduShop.Web/UploadedFiles/
+TeduShop.Web/AppSettings.config
