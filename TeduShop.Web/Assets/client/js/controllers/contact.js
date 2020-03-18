@@ -26,6 +26,10 @@
 
         // Hiển thị ngay thông tin của Marker khi load map mà ko cần click vào Marker
         infowindow.open(map, marker);
+
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        })
     }
 }
 
