@@ -1,9 +1,12 @@
 ﻿using BotDetect.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -53,9 +56,45 @@ namespace TeduShop.Web.Controllers
 
         }
         // GET: Account
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Login(LoginViewModel loginViewModel, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = await _userManager.FindAsync(loginViewModel.UserName, loginViewModel.Password);
+                if (user != null)
+                {
+                    IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
+                    authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+
+                    // ClaimsIdentity đóng gói các dữ liệu thông tin đăng nhập, thông tin quyền và lưu vào cookie
+                    ClaimsIdentity identity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                    AuthenticationProperties props = new AuthenticationProperties();
+                    props.IsPersistent = loginViewModel.RememberMe;
+                    authenticationManager.SignIn(props, identity);
+                    if (Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng.");
+                }
+            }
+
+            ViewBag.ReturnUrl = returnUrl;
+            return View(loginViewModel);
         }
 
         [HttpGet]
@@ -111,6 +150,15 @@ namespace TeduShop.Web.Controllers
             }
 
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOut()
+        {
+            IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

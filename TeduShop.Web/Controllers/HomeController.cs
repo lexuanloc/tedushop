@@ -23,7 +23,9 @@ namespace TeduShop.Web.Controllers
             _commonService = commonService;
         }
 
-        [OutputCache(Duration = 60, Location = System.Web.UI.OutputCacheLocation.Server)]
+        // Việc dùng Cache Location Server chỗ này sẽ gặp một số bug chỗ phần Đăng nhập người dùng
+        // mặc dù đã đăng xuất nhưng server vẫn lưu cache và chưa nhận đăng xuất
+        [OutputCache(Duration = 60, Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
         {
             var slideModel = _commonService.GetSlides();

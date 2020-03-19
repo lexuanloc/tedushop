@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Owin.Security.OAuth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -13,6 +14,10 @@ namespace TeduShop.Web
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            // Bỏ cơ chế Default và chỉ add cơ chế OAuthDefaults
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

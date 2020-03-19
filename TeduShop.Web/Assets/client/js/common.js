@@ -31,6 +31,13 @@
                 .appendTo(ul);
         };
 
+        // Xóa các sự kiện click đã bind trước đó, sau đó thực hiện function
+        $('#btnLogout').off('click').on('click', function (e) {
+            // Xóa mặc định của thẻ a
+            e.preventDefault();
+            $('#frmLogout').submit();
+        });
+
         //$("#txtKeyword").autocomplete({
         //    minLength: 0,
         //    source: function (request, response) {
