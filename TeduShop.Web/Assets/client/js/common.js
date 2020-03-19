@@ -29,8 +29,28 @@
             return $("<li>")
                 .append("<a>" + item.label + "</a>")
                 .appendTo(ul);
-        };
+            };
 
+        // Có rất nhiều nút 'Thêm vào giỏ' nên không thể lấy theo button cụ thể đc mà phải lấy theo class # --> .
+        $('.btnAddToCart').off('click').on('click', function (e) {
+            // Xóa điều hướng mặc định của thẻ <a>
+            e.preventDefault();
+            var productId = parseInt($(this).data('id'));
+
+            $.ajax({
+                url: '/ShoppingCart/Add',
+                data: {
+                    productId: productId
+                },
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status) {
+                        alert('Thêm sản phẩm thành công.');
+                    }
+                }
+            });
+        });
         // Xóa các sự kiện click đã bind trước đó, sau đó thực hiện function
         $('#btnLogout').off('click').on('click', function (e) {
             // Xóa mặc định của thẻ a

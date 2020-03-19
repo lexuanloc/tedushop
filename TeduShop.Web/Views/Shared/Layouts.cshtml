@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <title>Big shope A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
     <link href="~/Assets/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="~/Assets/client/font-awesome-4.6.3/css/font-awesome.css" rel="stylesheet" />
-    <link href="~/node_modules/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Assets/admin/libs/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />
 
     <!--theme-style-->
     <link href="~/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -38,10 +38,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="clearfix"> </div>
 
     <!--script-->
-    <script src="~/node_modules/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Assets/admin/libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/node_modules/mustache/mustache.js"></script>
+    <script src="~/node_modules/numeral/numeral.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/additional-methods.js"></script>
 
     @* Common luôn được nhúng dưới cùng *@
     <script src="~/Assets/client/js/common.js"></script>
+
     @RenderSection("footerJS", required: false)
 </body>
 </html>
