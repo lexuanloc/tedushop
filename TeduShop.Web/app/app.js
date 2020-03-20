@@ -7,6 +7,7 @@
             'tedushop.application_groups',
             'tedushop.application_roles',
             'tedushop.application_users',
+            'tedushop.statistics',
             'tedushop.common'])
         .config(config)
         .config(configAuthentication);

@@ -19,11 +19,11 @@ namespace TeduShop.Web.Api
             this._errorService = errorService;
         }
 
-        [Route("TestMethod")]
         [HttpGet]
+        [Route("TestMethod")]
         public string TestMethod()
         {
-            return "Hello";
+            return "Xin chào các bạn!";
         }
     }
 }

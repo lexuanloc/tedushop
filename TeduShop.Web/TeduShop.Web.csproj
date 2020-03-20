@@ -213,6 +213,7 @@
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
     <Compile Include="Api\ProductController.cs" />
+    <Compile Include="Api\StatisticController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -301,6 +302,8 @@
     <Content Include="app\components\product_categories\productCategoryEditView.html" />
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
+    <Content Include="app\components\statistic\revenueStatisticController.js" />
+    <Content Include="app\components\statistic\revenueStatisticView.html" />
     <Content Include="app\shared\directives\asDateDirective.js" />
     <Content Include="app\shared\directives\pagerDirective.html" />
     <Content Include="app\shared\directives\pagerDirective.js" />
@@ -4677,6 +4680,61 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Libs\CKFinder.dll" />
+    <Content Include="node_modules\angular-chart.js\angular-chart.js" />
+    <Content Include="node_modules\angular-chart.js\dist\angular-chart.css" />
+    <Content Include="node_modules\angular-chart.js\dist\angular-chart.js" />
+    <Content Include="node_modules\angular-chart.js\dist\angular-chart.min.css" />
+    <Content Include="node_modules\angular-chart.js\dist\angular-chart.min.js" />
+    <Content Include="node_modules\angular-chart.js\examples\amd.html" />
+    <Content Include="node_modules\angular-chart.js\examples\amd.js" />
+    <Content Include="node_modules\angular-chart.js\examples\app.css" />
+    <Content Include="node_modules\angular-chart.js\examples\app.js" />
+    <Content Include="node_modules\angular-chart.js\examples\bootstrap.css" />
+    <Content Include="node_modules\angular-chart.js\examples\charts.html" />
+    <Content Include="node_modules\angular-chart.js\examples\charts.template.html" />
+    <Content Include="node_modules\angular-chart.js\examples\smoothscroll.min.js" />
+    <Content Include="node_modules\angular-chart.js\examples\stacked-bars-directive.html" />
+    <Content Include="node_modules\angular-chart.js\examples\stacked-bars.html" />
+    <Content Include="node_modules\angular-chart.js\examples\tables.html" />
+    <Content Include="node_modules\angular-chart.js\examples\tabs.html" />
+    <Content Include="node_modules\angular-chart.js\examples\ticks.html" />
+    <Content Include="node_modules\angular-chart.js\examples\webpack.config.js" />
+    <Content Include="node_modules\angular-chart.js\gulpfile.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\29-tabs.alt.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\29-tabs.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\29-tabs.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\29-tabs.png" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\51-pie-update-colours.alt.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\51-pie-update-colours.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\51-pie-update-colours.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\51-pie-update-colours.png" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\54-not-enough-colours.alt.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\54-not-enough-colours.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\54-not-enough-colours.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\54-not-enough-colours.png" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\57-hex-colours.alt.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\57-hex-colours.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\57-hex-colours.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\57-hex-colours.png" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\charts.alt.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\charts.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\charts.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\charts.png" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\configure-line-chart.alt.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\configure-line-chart.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\configure-line-chart.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\configure-line-chart.png" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\coverage.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\custom-directive.alt.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\custom-directive.html" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\custom-directive.js" />
+    <Content Include="node_modules\angular-chart.js\test\fixtures\custom-directive.png" />
+    <Content Include="node_modules\angular-chart.js\test\index.html" />
+    <Content Include="node_modules\angular-chart.js\test\support\setup.js" />
+    <Content Include="node_modules\angular-chart.js\test\test.integration.js" />
+    <Content Include="node_modules\angular-chart.js\test\test.unit.js" />
+    <Content Include="node_modules\angular-chart.js\tmp\gradient.html" />
+    <Content Include="node_modules\angular-chart.js\tmp\gradient.js" />
     <Content Include="node_modules\angular-loading-bar\build\loading-bar.css" />
     <Content Include="node_modules\angular-loading-bar\build\loading-bar.js" />
     <Content Include="node_modules\angular-loading-bar\build\loading-bar.min.css" />
@@ -4762,6 +4820,24 @@
     <Content Include="node_modules\bootstrap\js\tab.js" />
     <Content Include="node_modules\bootstrap\js\tooltip.js" />
     <Content Include="node_modules\bootstrap\js\transition.js" />
+    <Content Include="node_modules\chart.js\Chart.js" />
+    <Content Include="node_modules\chart.js\Chart.min.js" />
+    <Content Include="node_modules\chart.js\gulpfile.js" />
+    <Content Include="node_modules\chart.js\samples\bar.html" />
+    <Content Include="node_modules\chart.js\samples\doughnut.color.html" />
+    <Content Include="node_modules\chart.js\samples\doughnut.html" />
+    <Content Include="node_modules\chart.js\samples\line-customTooltips.html" />
+    <Content Include="node_modules\chart.js\samples\line.html" />
+    <Content Include="node_modules\chart.js\samples\pie-customTooltips.html" />
+    <Content Include="node_modules\chart.js\samples\pie.html" />
+    <Content Include="node_modules\chart.js\samples\polar-area.html" />
+    <Content Include="node_modules\chart.js\samples\radar.html" />
+    <Content Include="node_modules\chart.js\src\Chart.Bar.js" />
+    <Content Include="node_modules\chart.js\src\Chart.Core.js" />
+    <Content Include="node_modules\chart.js\src\Chart.Doughnut.js" />
+    <Content Include="node_modules\chart.js\src\Chart.Line.js" />
+    <Content Include="node_modules\chart.js\src\Chart.PolarArea.js" />
+    <Content Include="node_modules\chart.js\src\Chart.Radar.js" />
     <Content Include="node_modules\checklist-model\checklist-model.js" />
     <Content Include="node_modules\checklist-model\docs\app.js" />
     <Content Include="node_modules\checklist-model\docs\blocks\array-dynamic\ctrl.js" />
@@ -5171,6 +5247,7 @@
     <Folder Include="Views\ApplicationRole\" />
     <Folder Include="Views\ApplicationUser\" />
     <Folder Include="Views\Post\" />
+    <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -5731,6 +5808,55 @@
     <Content Include="node_modules\checklist-model\docs\tests.jade" />
     <Content Include="node_modules\checklist-model\package.json" />
     <Content Include="node_modules\checklist-model\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\components\statistic\statistic.module.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="node_modules\chart.js\.codeclimate.yml" />
+    <Content Include="node_modules\chart.js\.eslintignore" />
+    <Content Include="node_modules\chart.js\.eslintrc" />
+    <Content Include="node_modules\chart.js\.npmignore" />
+    <Content Include="node_modules\chart.js\.travis.yml" />
+    <Content Include="node_modules\chart.js\bower.json" />
+    <Content Include="node_modules\chart.js\composer.json" />
+    <Content Include="node_modules\chart.js\CONTRIBUTING.md" />
+    <Content Include="node_modules\chart.js\docs\00-Getting-Started.md" />
+    <Content Include="node_modules\chart.js\docs\01-Line-Chart.md" />
+    <Content Include="node_modules\chart.js\docs\02-Bar-Chart.md" />
+    <Content Include="node_modules\chart.js\docs\03-Radar-Chart.md" />
+    <Content Include="node_modules\chart.js\docs\04-Polar-Area-Chart.md" />
+    <Content Include="node_modules\chart.js\docs\05-Pie-Doughnut-Chart.md" />
+    <Content Include="node_modules\chart.js\docs\06-Advanced.md" />
+    <Content Include="node_modules\chart.js\docs\07-Notes.md" />
+    <Content Include="node_modules\chart.js\LICENSE.md" />
+    <Content Include="node_modules\chart.js\package.json" />
+    <Content Include="node_modules\chart.js\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="node_modules\angular-chart.js\.codeclimate.yml" />
+    <Content Include="node_modules\angular-chart.js\.dockerignore" />
+    <Content Include="node_modules\angular-chart.js\.editorconfig" />
+    <Content Include="node_modules\angular-chart.js\.jscsrc" />
+    <Content Include="node_modules\angular-chart.js\.jshintignore" />
+    <Content Include="node_modules\angular-chart.js\.jshintrc" />
+    <Content Include="node_modules\angular-chart.js\.node-version" />
+    <Content Include="node_modules\angular-chart.js\.npmignore" />
+    <Content Include="node_modules\angular-chart.js\.travis.yml" />
+    <Content Include="node_modules\angular-chart.js\angular-chart.less" />
+    <Content Include="node_modules\angular-chart.js\bower.json" />
+    <Content Include="node_modules\angular-chart.js\CONTRIBUTING.md" />
+    <Content Include="node_modules\angular-chart.js\dist\angular-chart.js.tar.gz" />
+    <Content Include="node_modules\angular-chart.js\dist\angular-chart.min.css.map" />
+    <Content Include="node_modules\angular-chart.js\dist\angular-chart.min.js.map" />
+    <Content Include="node_modules\angular-chart.js\Dockerfile" />
+    <Content Include="node_modules\angular-chart.js\ISSUE_TEMPLATE.md" />
+    <Content Include="node_modules\angular-chart.js\LICENSE" />
+    <Content Include="node_modules\angular-chart.js\package.json" />
+    <Content Include="node_modules\angular-chart.js\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="node_modules\angular-chart.js\README.md" />
+    <Content Include="node_modules\angular-chart.js\test\mocha.opts" />
+    <Content Include="node_modules\angular-chart.js\tmp\Dockerfile-alpine" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -75,19 +75,38 @@ namespace TeduShop.Web.Controllers
 
             var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
             List<OrderDetail> orderDetails = new List<OrderDetail>();
+
+            bool isEnough = true;
             foreach (var item in cart)
             {
                 var detail = new OrderDetail();
                 detail.ProductID = item.ProductId;
-                detail.Quantitty = item.Quantity;
+                detail.Quantity = item.Quantity;
+                detail.Price = item.Product.Price;
                 orderDetails.Add(detail);
+
+                isEnough = _productService.SellProduct(item.ProductId, item.Quantity);
+                if (isEnough == false) break;
             }
 
-            _orderService.Create(orderNew, orderDetails);
-            return Json(new
+            if (isEnough)
             {
-                status = true
-            });
+                _orderService.Create(orderNew, orderDetails);
+                _productService.Save();
+
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = "Không đủ hàng."
+                });
+            }
         }
         public JsonResult GetAll()
         {
@@ -106,9 +125,20 @@ namespace TeduShop.Web.Controllers
         public JsonResult Add(int productId)
         {
             var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
+            var product2 = _productService.GetById(productId);
+
             if (cart == null)
             {
                 cart = new List<ShoppingCartViewModel>();
+            }
+
+            if (product2.Quantity == 0)
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = "Sản phẩm hiện đang hết hàng"
+                });
             }
 
             // Kiểm tra giỏ, nếu đã có hàng trong giỏ rồi thì chỉ tăng số lượng

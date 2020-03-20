@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,10 @@ namespace TeduShop.Web
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            // Không hiển thị giá trị serializable, VD: ProductViewModel
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
+                new DefaultContractResolver { IgnoreSerializableAttribute = true };
 
             // Bỏ cơ chế Default và chỉ add cơ chế OAuthDefaults
             config.SuppressDefaultHostAuthentication();

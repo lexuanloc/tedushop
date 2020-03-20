@@ -37,7 +37,9 @@ namespace TeduShop.Service
                     orderDetail.OrderID = order.ID;
                     _orderDetailRepository.Add(orderDetail);
                 }
-                _unitOfWork.Commit();
+                
+                // Chưa commmit ngay được mà phải gọi hàm SellProduct để kiểm tra số lượng trong kho
+                //_unitOfWork.Commit();
                 return true;
             }
             catch (Exception ex)
