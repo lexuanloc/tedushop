@@ -206,6 +206,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AccountController.cs" />
+    <Compile Include="Api\ApplicationGroupController.cs" />
+    <Compile Include="Api\ApplicationRoleController.cs" />
+    <Compile Include="Api\ApplicationUserController.cs" />
     <Compile Include="Api\HomeController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
@@ -233,6 +236,9 @@
     <Compile Include="Infrastructure\Core\PaginationSet.cs" />
     <Compile Include="Infrastructure\Extensions\EntityExtensions.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
+    <Compile Include="Models\ApplicationGroupViewModel.cs" />
+    <Compile Include="Models\ApplicationRoleViewModel.cs" />
+    <Compile Include="Models\ApplicationUserViewModel.cs" />
     <Compile Include="Models\ContactDetailViewModel.cs" />
     <Compile Include="Models\FeedbackViewModel.cs" />
     <Compile Include="Models\FooterViewModel.cs" />
@@ -255,6 +261,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\components\application_groups\applicationGroup.module.js" />
+    <Content Include="app\components\application_groups\applicationGroupAddController.js" />
+    <Content Include="app\components\application_groups\applicationGroupAddView.html" />
+    <Content Include="app\components\application_groups\applicationGroupEditController.js" />
+    <Content Include="app\components\application_groups\applicationGroupEditView.html" />
+    <Content Include="app\components\application_groups\applicationGroupListController.js" />
+    <Content Include="app\components\application_groups\applicationGroupListView.html" />
+    <Content Include="app\components\application_roles\applicationRoleAddController.js" />
+    <Content Include="app\components\application_roles\applicationRoleAddView.html" />
+    <Content Include="app\components\application_roles\applicationRoleEditController.js" />
+    <Content Include="app\components\application_roles\applicationRoleEditView.html" />
+    <Content Include="app\components\application_roles\applicationRoleListController.js" />
+    <Content Include="app\components\application_roles\applicationRoleListView.html" />
+    <Content Include="app\components\application_roles\applicationRoles.module.js" />
+    <Content Include="app\components\application_users\applicationUserAddController.js" />
+    <Content Include="app\components\application_users\applicationUserAddView.html" />
+    <Content Include="app\components\application_users\applicationUserEditController.js" />
+    <Content Include="app\components\application_users\applicationUserEditView.html" />
+    <Content Include="app\components\application_users\applicationUserListController.js" />
+    <Content Include="app\components\application_users\applicationUserListView.html" />
+    <Content Include="app\components\application_users\applicationUsers.module.js" />
     <Content Include="app\components\home\homeController.js" />
     <Content Include="app\components\home\homeView.html" />
     <Content Include="app\components\home\rootController.js" />
@@ -274,6 +301,7 @@
     <Content Include="app\components\product_categories\productCategoryEditView.html" />
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
+    <Content Include="app\shared\directives\asDateDirective.js" />
     <Content Include="app\shared\directives\pagerDirective.html" />
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filters\statusFilter.js" />
@@ -4734,6 +4762,53 @@
     <Content Include="node_modules\bootstrap\js\tab.js" />
     <Content Include="node_modules\bootstrap\js\tooltip.js" />
     <Content Include="node_modules\bootstrap\js\transition.js" />
+    <Content Include="node_modules\checklist-model\checklist-model.js" />
+    <Content Include="node_modules\checklist-model\docs\app.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-dynamic\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-dynamic\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-dynamic\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-id\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-id\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-id\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-object-with-ngmodel\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-object-with-ngmodel\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-object-with-ngmodel\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-object\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-object\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-object\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-simple\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-simple\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\array-simple\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\comparator-expression\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\comparator-expression\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\comparator-expression\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\dynamic-value\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\dynamic-value\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\dynamic-value\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\event\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\event\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\event\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\filter\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\filter\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\filter\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\function-as-model\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\function-as-model\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\function-as-model\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\object-static-list\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\object-static-list\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\object-static-list\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\object\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\object\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\object\view.html" />
+    <Content Include="node_modules\checklist-model\docs\blocks\single-object\ctrl.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\single-object\test.js" />
+    <Content Include="node_modules\checklist-model\docs\blocks\single-object\view.html" />
+    <Content Include="node_modules\checklist-model\docs\img\checkbox.png" />
+    <Content Include="node_modules\checklist-model\docs\main.css" />
+    <Content Include="node_modules\checklist-model\Gruntfile.js" />
+    <Content Include="node_modules\checklist-model\index.html" />
+    <Content Include="node_modules\checklist-model\LICENSE.txt" />
+    <Content Include="node_modules\checklist-model\test\index.html" />
     <Content Include="node_modules\fastclick\lib\fastclick.js" />
     <Content Include="node_modules\jquery-validation\dist\additional-methods.js" />
     <Content Include="node_modules\jquery-validation\dist\jquery.validate.js" />
@@ -5092,6 +5167,9 @@
     <Folder Include="Assets\admin\js\pages\" />
     <Folder Include="UploadedFiles\" />
     <Folder Include="Views\About\" />
+    <Folder Include="Views\ApplicationGroup\" />
+    <Folder Include="Views\ApplicationRole\" />
+    <Folder Include="Views\ApplicationUser\" />
     <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>
@@ -5645,6 +5723,14 @@
     <Content Include="node_modules\jquery-validation\LICENSE.md" />
     <Content Include="node_modules\jquery-validation\package.json" />
     <Content Include="node_modules\jquery-validation\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="node_modules\checklist-model\.npmignore" />
+    <Content Include="node_modules\checklist-model\bower.json" />
+    <Content Include="node_modules\checklist-model\docs\index.jade" />
+    <Content Include="node_modules\checklist-model\docs\tests.jade" />
+    <Content Include="node_modules\checklist-model\package.json" />
+    <Content Include="node_modules\checklist-model\readme.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

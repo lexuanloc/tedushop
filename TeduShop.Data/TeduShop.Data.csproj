@@ -108,8 +108,20 @@
     <Compile Include="Migrations\202003190837275_AddCustomerId.Designer.cs">
       <DependentUpon>202003190837275_AddCustomerId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003200216583_RenameIdentityTables.cs" />
+    <Compile Include="Migrations\202003200216583_RenameIdentityTables.Designer.cs">
+      <DependentUpon>202003200216583_RenameIdentityTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003200253061_AddGroupUser.cs" />
+    <Compile Include="Migrations\202003200253061_AddGroupUser.Designer.cs">
+      <DependentUpon>202003200253061_AddGroupUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ApplicationGroupRepository.cs" />
+    <Compile Include="Repositories\ApplicationRoleGroupRepository.cs" />
+    <Compile Include="Repositories\ApplicationRoleRepository.cs" />
+    <Compile Include="Repositories\ApplicationUserGroupRepository.cs" />
     <Compile Include="Repositories\ContactDetailRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\FeedbackRepository.cs" />
@@ -179,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003190837275_AddCustomerId.resx">
       <DependentUpon>202003190837275_AddCustomerId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003200216583_RenameIdentityTables.resx">
+      <DependentUpon>202003200216583_RenameIdentityTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003200253061_AddGroupUser.resx">
+      <DependentUpon>202003200253061_AddGroupUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
