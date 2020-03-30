@@ -29,7 +29,7 @@ namespace TeduShop.Data.Repositories
 
             totalRow = query.Count();
 
-            query = query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+            query = query.OrderByDescending(x => x.CreatedDate).Skip((pageIndex - 1) * pageSize).Take(pageSize);
 
             return query;
         }

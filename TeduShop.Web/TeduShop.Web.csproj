@@ -5858,6 +5858,9 @@
     <Content Include="node_modules\angular-chart.js\test\mocha.opts" />
     <Content Include="node_modules\angular-chart.js\tmp\Dockerfile-alpine" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
