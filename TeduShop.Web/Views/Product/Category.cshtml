@@ -1,28 +1,35 @@
 ﻿@model TeduShop.Web.Infrastructure.Core.PaginationSet<TeduShop.Web.Models.ProductViewModel>
 
 @{
-    ViewBag.Title = "Category";
-    Layout = "~/Views/Shared/Layouts.cshtml";
     var category = (TeduShop.Web.Models.ProductCategoryViewModel)ViewBag.Category;
+    var pageIndex = Model.Page;
+
+    // Thêm Index để không bị Duplicate tiêu đề giữa các trang
+    ViewBag.Title = pageIndex == 1 ? category.Name : category.Name + " - Trang " + pageIndex;
+    ViewBag.MetaKeyword = pageIndex == 1 ? category.MetaKeyword : category.MetaKeyword + " - Trang " + pageIndex;
+    ViewBag.MetaDescription = pageIndex == 1 ? category.MetaDescription : category.MetaDescription + " - Trang " + pageIndex;
+    Layout = "~/Views/Shared/Layouts.cshtml";
 }
 
     <div class="women-product">
+        @* Luôn hiện thẻ h4 ngay khi không có sản phẩm *@
+        <div class="w_content">
+            <div class="women">
+                <a href="/@(category.Alias).pc-@(category.ID).html"><h4>@category.Name - <span>@Model.TotalCount sản phẩm</span></h4></a>
+                <ul class="w_nav">
+                    <li>Sắp xếp : </li>
+                    <li><a class="active" href="?page=@Model.Page&sort=popular">Phổ biến</a></li> |
+                    <li><a href="?page=@Model.Page&sort=new">Mới </a></li> |
+                    <li><a href="?page=@Model.Page&sort=discount">Khuyến mãi</a></li> |
+                    <li><a href="?page=@Model.Page&sort=price">Giá: Thấp -> Cao </a></li>
+                    <div class="clearfix"> </div>
+                </ul>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
         @if (Model.Items.Count() > 0)
         {
-            <div class="w_content">
-                <div class="women">
-                    <a href="/@(category.Alias).pc-@(category.ID).html"><h4>@category.Name - <span>@Model.TotalCount sản phẩm</span></h4></a>
-                    <ul class="w_nav">
-                        <li>Sắp xếp : </li>
-                        <li><a class="active" href="?page=@Model.Page&sort=popular">Phổ biến</a></li> |
-                        <li><a href="?page=@Model.Page&sort=new">Mới </a></li> |
-                        <li><a href="?page=@Model.Page&sort=discount">Khuyến mãi</a></li> |
-                        <li><a href="?page=@Model.Page&sort=price">Giá: Thấp -> Cao </a></li>
-                        <div class="clearfix"> </div>
-                    </ul>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
             <!-- grids_of_4 -->
             <div class="grid-product">
                 @foreach (var product in Model.Items)

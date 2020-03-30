@@ -25,6 +25,35 @@
             CreateSlide(context);
             CreatePage(context);
             CreateContactDetail(context);
+            CreateConfigTitle(context);
+        }
+
+        private void CreateConfigTitle(TeduShopDbContext context)
+        {
+            if (context.SystemConfigs.Any(x => x.Code == CommonConstants.HomeTitle) == false)
+            {
+                context.SystemConfigs.Add(new SystemConfig()
+                {
+                    Code = CommonConstants.HomeTitle,
+                    ValueString = "Trang chủ TeduShop"
+                });
+            }
+            if (context.SystemConfigs.Any(x => x.Code == CommonConstants.HomeMetaKeyword) == false)
+            {
+                context.SystemConfigs.Add(new SystemConfig()
+                {
+                    Code = CommonConstants.HomeMetaKeyword,
+                    ValueString = "Trang chủ TeduShop"
+                });
+            }
+            if (context.SystemConfigs.Any(x => x.Code == CommonConstants.HomeMetaDescription) == false)
+            {
+                context.SystemConfigs.Add(new SystemConfig()
+                {
+                    Code = CommonConstants.HomeMetaDescription,
+                    ValueString = "Trang chủ TeduShop"
+                });
+            }
         }
 
         private void CreadUser(TeduShopDbContext context)

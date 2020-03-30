@@ -7,14 +7,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Big shope A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
-    <link href="~/Assets/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.MetaDescription" />
+    <meta name="keywords" content="@ViewBag.MetaKeyword" />
+
+    @*<link href="~/Assets/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="~/Assets/client/font-awesome-4.6.3/css/font-awesome.css" rel="stylesheet" />
     <link href="~/Assets/admin/libs/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />
-
-    <!--theme-style-->
     <link href="~/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="~/Assets/client/css/custom.css" rel="stylesheet" />
+    <link href="~/Assets/client/css/custom.css" rel="stylesheet" />*@
+
+    @Styles.Render("~/css/base");
 
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,7 +25,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!--//fonts-->
-    <script src="~/Assets/client/js/jquery.min.js"></script>
+    @*<script src="~/Assets/client/js/jquery.min.js"></script>*@
+    @Scripts.Render("~/js/jquery");
 </head>
 <body>
     <!--header-->
@@ -38,14 +42,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="clearfix"> </div>
 
     <!--script-->
-    <script src="~/Assets/admin/libs/jquery-ui/jquery-ui.min.js"></script>
-    <script src="~/node_modules/mustache/mustache.js"></script>
-    <script src="~/node_modules/numeral/numeral.js"></script>
-    <script src="~/node_modules/jquery-validation/dist/jquery.validate.js"></script>
-    <script src="~/node_modules/jquery-validation/dist/additional-methods.js"></script>
+    @*<script src="~/Assets/admin/libs/jquery-ui/jquery-ui.min.js"></script>
+        <script src="~/node_modules/mustache/mustache.js"></script>
+        <script src="~/node_modules/numeral/numeral.js"></script>
+        <script src="~/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/node_modules/jquery-validation/dist/additional-methods.js"></script>*@
 
     @* Common luôn được nhúng dưới cùng *@
-    <script src="~/Assets/client/js/common.js"></script>
+    @*<script src="~/Assets/client/js/common.js"></script>*@
+
+    
+    @Scripts.Render("~/js/plugins");
 
     @RenderSection("footerJS", required: false)
 </body>
